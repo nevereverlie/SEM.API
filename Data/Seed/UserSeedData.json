@@ -1,0 +1,72 @@
+[
+    {
+      "UserEmail": "danylo.hladkov@nure.ua",
+      "Firstname": "Danylo",
+      "Lastname": "Hladkov",
+      "WorkedHours": 0,
+      "WastedHours": 0
+    },
+    {
+      "UserEmail": "kimberlycochran@geoforma.com",
+      "Firstname": "Michele",
+      "Lastname": "Doyle",
+      "WorkedHours": 0,
+      "WastedHours": 0
+    },
+    {
+      "UserEmail": "micheledoyle@geoforma.com",
+      "Firstname": "Deanne",
+      "Lastname": "Burks",
+      "WorkedHours": 0,
+      "WastedHours": 0
+    },
+    {
+      "UserEmail": "deanneburks@geoforma.com",
+      "Firstname": "Latonya",
+      "Lastname": "Macdonald",
+      "WorkedHours": 0,
+      "WastedHours": 0
+    },
+    {
+      "UserEmail": "latonyamacdonald@geoforma.com",
+      "Firstname": "Traci",
+      "Lastname": "Mcleod",
+      "WorkedHours": 0,
+      "WastedHours": 0
+    },
+    {
+      "UserEmail": "tracimcleod@geoforma.com",
+      "Firstname": "Stacey",
+      "Lastname": "Gilliam",
+      "WorkedHours": 0,
+      "WastedHours": 0
+    },
+    {
+      "UserEmail": "staceygilliam@geoforma.com",
+      "Firstname": "Luann",
+      "Lastname": "Schultz",
+      "WorkedHours": 0,
+      "WastedHours": 0
+    },
+    {
+      "UserEmail": "luannschultz@geoforma.com",
+      "Firstname": "Madeline",
+      "Lastname": "Orr",
+      "WorkedHours": 0,
+      "WastedHours": 0
+    },
+    {
+      "UserEmail": "madelineorr@geoforma.com",
+      "Firstname": "Nunez",
+      "Lastname": "Small",
+      "WorkedHours": 0,
+      "WastedHours": 0
+    },
+    {
+      "UserEmail": "nunezsmall@geoforma.com",
+      "Firstname": "Nettie",
+      "Lastname": "Clay",
+      "WorkedHours": 0,
+      "WastedHours": 0
+    }
+  ]

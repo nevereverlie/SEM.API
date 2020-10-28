@@ -7,7 +7,6 @@ namespace Revisory_Control.API.Models
     {
         public int UserId { get; set; }
         public string UserEmail { get; set; }
-
         public byte[] PasswordHash { get; set; }
         public byte[] PasswordSalt { get; set; }
         public string Firstname { get; set; }

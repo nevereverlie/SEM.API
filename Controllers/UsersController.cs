@@ -8,6 +8,7 @@ using RevisoryControl.API.Data;
 
 namespace Revisory_Control.API.Controllers
 {
+    [Authorize]
     public class UsersController : BaseApiController
     {
         private readonly DataContext _context;
@@ -23,7 +24,6 @@ namespace Revisory_Control.API.Controllers
             return await _context.Users.ToListAsync();
         }
 
-        [Authorize]
         [HttpGet("{id}")]
         public async Task<ActionResult<User>> GetUserById(int id)
         {
