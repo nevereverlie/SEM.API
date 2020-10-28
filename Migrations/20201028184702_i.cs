@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Revisory_Control.API.Migrations
 {
-    public partial class initialcreate : Migration
+    public partial class i : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -54,14 +54,14 @@ namespace Revisory_Control.API.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Employees",
+                name: "Users",
                 columns: table => new
                 {
-                    EmployeeId = table.Column<int>(nullable: false)
+                    UserId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    EmployeeEmail = table.Column<string>(nullable: true),
-                    PasswordHash = table.Column<string>(nullable: true),
-                    PasswordSalt = table.Column<string>(nullable: true),
+                    UserEmail = table.Column<string>(nullable: true),
+                    PasswordHash = table.Column<byte[]>(nullable: true),
+                    PasswordSalt = table.Column<byte[]>(nullable: true),
                     Firstname = table.Column<string>(nullable: true),
                     Lastname = table.Column<string>(nullable: true),
                     DepartmentId = table.Column<int>(nullable: true),
@@ -70,9 +70,9 @@ namespace Revisory_Control.API.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Employees", x => x.EmployeeId);
+                    table.PrimaryKey("PK_Users", x => x.UserId);
                     table.ForeignKey(
-                        name: "FK_Employees_Departments_DepartmentId",
+                        name: "FK_Users_Departments_DepartmentId",
                         column: x => x.DepartmentId,
                         principalTable: "Departments",
                         principalColumn: "DepartmentId",
@@ -83,19 +83,19 @@ namespace Revisory_Control.API.Migrations
                 name: "Schedules",
                 columns: table => new
                 {
-                    EmployeeId = table.Column<int>(nullable: false),
+                    UserId = table.Column<int>(nullable: false),
                     WeekDayId = table.Column<int>(nullable: false),
                     TimeFrom = table.Column<DateTime>(nullable: false),
                     TimeTo = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Schedules", x => new { x.EmployeeId, x.WeekDayId });
+                    table.PrimaryKey("PK_Schedules", x => new { x.UserId, x.WeekDayId });
                     table.ForeignKey(
-                        name: "FK_Schedules_Employees_EmployeeId",
-                        column: x => x.EmployeeId,
-                        principalTable: "Employees",
-                        principalColumn: "EmployeeId",
+                        name: "FK_Schedules_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "UserId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Schedules_WeekDays_WeekDayId",
@@ -111,14 +111,14 @@ namespace Revisory_Control.API.Migrations
                 column: "CompanyId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Employees_DepartmentId",
-                table: "Employees",
-                column: "DepartmentId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Schedules_WeekDayId",
                 table: "Schedules",
                 column: "WeekDayId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Users_DepartmentId",
+                table: "Users",
+                column: "DepartmentId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -127,7 +127,7 @@ namespace Revisory_Control.API.Migrations
                 name: "Schedules");
 
             migrationBuilder.DropTable(
-                name: "Employees");
+                name: "Users");
 
             migrationBuilder.DropTable(
                 name: "WeekDays");

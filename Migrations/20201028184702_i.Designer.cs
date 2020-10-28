@@ -10,8 +10,8 @@ using RevisoryControl.API.Data;
 namespace Revisory_Control.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20201028181240_initialcreate")]
-    partial class initialcreate
+    [Migration("20201028184702_i")]
+    partial class i
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -56,47 +56,9 @@ namespace Revisory_Control.API.Migrations
                     b.ToTable("Departments");
                 });
 
-            modelBuilder.Entity("Revisory_Control.API.Models.Employee", b =>
-                {
-                    b.Property<int>("EmployeeId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("DepartmentId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("EmployeeEmail")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Firstname")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Lastname")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PasswordHash")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PasswordSalt")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("WastedHours")
-                        .HasColumnType("int");
-
-                    b.Property<int>("WorkedHours")
-                        .HasColumnType("int");
-
-                    b.HasKey("EmployeeId");
-
-                    b.HasIndex("DepartmentId");
-
-                    b.ToTable("Employees");
-                });
-
             modelBuilder.Entity("Revisory_Control.API.Models.Schedule", b =>
                 {
-                    b.Property<int>("EmployeeId")
+                    b.Property<int>("UserId")
                         .HasColumnType("int");
 
                     b.Property<int>("WeekDayId")
@@ -108,11 +70,49 @@ namespace Revisory_Control.API.Migrations
                     b.Property<DateTime>("TimeTo")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("EmployeeId", "WeekDayId");
+                    b.HasKey("UserId", "WeekDayId");
 
                     b.HasIndex("WeekDayId");
 
                     b.ToTable("Schedules");
+                });
+
+            modelBuilder.Entity("Revisory_Control.API.Models.User", b =>
+                {
+                    b.Property<int>("UserId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("DepartmentId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Firstname")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Lastname")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<byte[]>("PasswordHash")
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<byte[]>("PasswordSalt")
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<string>("UserEmail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("WastedHours")
+                        .HasColumnType("int");
+
+                    b.Property<int>("WorkedHours")
+                        .HasColumnType("int");
+
+                    b.HasKey("UserId");
+
+                    b.HasIndex("DepartmentId");
+
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("Revisory_Control.API.Models.WeekDay", b =>
@@ -138,19 +138,11 @@ namespace Revisory_Control.API.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("Revisory_Control.API.Models.Employee", b =>
-                {
-                    b.HasOne("Revisory_Control.API.Models.Department", "Department")
-                        .WithMany("Employees")
-                        .HasForeignKey("DepartmentId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
             modelBuilder.Entity("Revisory_Control.API.Models.Schedule", b =>
                 {
-                    b.HasOne("Revisory_Control.API.Models.Employee", "Employee")
+                    b.HasOne("Revisory_Control.API.Models.User", "User")
                         .WithMany("Schedules")
-                        .HasForeignKey("EmployeeId")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -159,6 +151,14 @@ namespace Revisory_Control.API.Migrations
                         .HasForeignKey("WeekDayId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Revisory_Control.API.Models.User", b =>
+                {
+                    b.HasOne("Revisory_Control.API.Models.Department", "Department")
+                        .WithMany("Users")
+                        .HasForeignKey("DepartmentId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

@@ -14,6 +14,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Revisory_Control.API.Interfaces;
+using Revisory_Control.API.Services;
 using RevisoryControl.API.Data;
 
 namespace RevisoryControl.API
@@ -31,6 +33,8 @@ namespace RevisoryControl.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<ITokenService, TokenService>();
+            
             services.AddControllers();
 
             services.AddDbContext<DataContext>(options => {

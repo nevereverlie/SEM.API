@@ -9,7 +9,7 @@ namespace RevisoryControl.API.Data
         {
         }
 
-        public DbSet<Employee> Employees { get; set; }
+        public DbSet<User> Users { get; set; }
         public DbSet<Department> Departments { get; set; }
         public DbSet<Company> Companies { get; set; }
         public DbSet<WeekDay> WeekDays { get; set; }
@@ -20,7 +20,7 @@ namespace RevisoryControl.API.Data
             base.OnModelCreating(modelBuilder);
             
             modelBuilder.Entity<Department>()
-                .HasMany(d => d.Employees)
+                .HasMany(d => d.Users)
                 .WithOne(d => d.Department)
                 .OnDelete(DeleteBehavior.Cascade);
 
@@ -30,11 +30,11 @@ namespace RevisoryControl.API.Data
                 .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<Schedule>()
-                .HasKey(k => new { k.EmployeeId, k.WeekDayId });
+                .HasKey(k => new { k.UserId, k.WeekDayId });
 
-            modelBuilder.Entity<Employee>()
+            modelBuilder.Entity<User>()
                 .HasMany(e => e.Schedules)
-                .WithOne(e => e.Employee)
+                .WithOne(e => e.User)
                 .OnDelete(DeleteBehavior.Cascade)
                 .IsRequired();
 
