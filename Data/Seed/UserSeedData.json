@@ -1,72 +1,172 @@
 [
-    {
-      "UserEmail": "danylo.hladkov@nure.ua",
-      "Firstname": "Danylo",
-      "Lastname": "Hladkov",
-      "WorkedHours": 0,
-      "WastedHours": 0
+  {
+    "UserEmail": "danylo.hladkov@nure.ua",
+    "Firstname": "Danylo",
+    "Lastname": "Hladkov",
+    "WorkedHours": 12,
+    "WastedHours": 4,
+    "Department": {
+      "DepartmentName": ".NET"
     },
-    {
-      "UserEmail": "kimberlycochran@geoforma.com",
-      "Firstname": "Michele",
-      "Lastname": "Doyle",
-      "WorkedHours": 0,
-      "WastedHours": 0
+    "Schedules": [
+      {
+        "WeekDayId": 1,
+        "TimeFrom": "06:00",
+        "TimeTo": "20:00"
+      }
+    ]
+  },
+  {
+    "UserEmail": "raymondsullivan@kraggle.com",
+    "Firstname": "Mabel",
+    "Lastname": "Howe",
+    "WorkedHours": 0,
+    "WastedHours": 0,
+    "Department": {
+      "DepartmentName": "Java"
     },
-    {
-      "UserEmail": "micheledoyle@geoforma.com",
-      "Firstname": "Deanne",
-      "Lastname": "Burks",
-      "WorkedHours": 0,
-      "WastedHours": 0
+    "Schedules": [
+      {
+        "WeekDayId": 7,
+        "TimeFrom": "13:02",
+        "TimeTo": "14:04"
+      }
+    ]
+  },
+  {
+    "UserEmail": "mabelhowe@kraggle.com",
+    "Firstname": "Daisy",
+    "Lastname": "Cooper",
+    "WorkedHours": 0,
+    "WastedHours": 0,
+    "Department": {
+      "DepartmentName": "IOS"
     },
-    {
-      "UserEmail": "deanneburks@geoforma.com",
-      "Firstname": "Latonya",
-      "Lastname": "Macdonald",
-      "WorkedHours": 0,
-      "WastedHours": 0
+    "Schedules": [
+      {
+        "WeekDayId": 4,
+        "TimeFrom": "07:11",
+        "TimeTo": "05:12"
+      }
+    ]
+  },
+  {
+    "UserEmail": "daisycooper@kraggle.com",
+    "Firstname": "Amie",
+    "Lastname": "William",
+    "WorkedHours": 0,
+    "WastedHours": 0,
+    "Department": {
+      "DepartmentName": "Embedded Systems"
     },
-    {
-      "UserEmail": "latonyamacdonald@geoforma.com",
-      "Firstname": "Traci",
-      "Lastname": "Mcleod",
-      "WorkedHours": 0,
-      "WastedHours": 0
+    "Schedules": [
+      {
+        "WeekDayId": 6,
+        "TimeFrom": "19:01",
+        "TimeTo": "14:10"
+      }
+    ]
+  },
+  {
+    "UserEmail": "amiewilliam@kraggle.com",
+    "Firstname": "Trina",
+    "Lastname": "Cervantes",
+    "WorkedHours": 0,
+    "WastedHours": 0,
+    "Department": {
+      "DepartmentName": ".NET"
     },
-    {
-      "UserEmail": "tracimcleod@geoforma.com",
-      "Firstname": "Stacey",
-      "Lastname": "Gilliam",
-      "WorkedHours": 0,
-      "WastedHours": 0
+    "Schedules": [
+      {
+        "WeekDayId": 7,
+        "TimeFrom": "20:02",
+        "TimeTo": "14:12"
+      }
+    ]
+  },
+  {
+    "UserEmail": "trinacervantes@kraggle.com",
+    "Firstname": "Mcneil",
+    "Lastname": "Christian",
+    "WorkedHours": 0,
+    "WastedHours": 0,
+    "Department": {
+      "DepartmentName": "Android"
     },
-    {
-      "UserEmail": "staceygilliam@geoforma.com",
-      "Firstname": "Luann",
-      "Lastname": "Schultz",
-      "WorkedHours": 0,
-      "WastedHours": 0
+    "Schedules": [
+      {
+        "WeekDayId": 3,
+        "TimeFrom": "06:09",
+        "TimeTo": "15:07"
+      }
+    ]
+  },
+  {
+    "UserEmail": "mcneilchristian@kraggle.com",
+    "Firstname": "Frye",
+    "Lastname": "Peck",
+    "WorkedHours": 0,
+    "WastedHours": 0,
+    "Department": {
+      "DepartmentName": "IOS"
     },
-    {
-      "UserEmail": "luannschultz@geoforma.com",
-      "Firstname": "Madeline",
-      "Lastname": "Orr",
-      "WorkedHours": 0,
-      "WastedHours": 0
+    "Schedules": [
+      {
+        "WeekDayId": 3,
+        "TimeFrom": "00:05",
+        "TimeTo": "20:11"
+      }
+    ]
+  },
+  {
+    "UserEmail": "fryepeck@kraggle.com",
+    "Firstname": "Conley",
+    "Lastname": "Kent",
+    "WorkedHours": 0,
+    "WastedHours": 0,
+    "Department": {
+      "DepartmentName": "IOS"
     },
-    {
-      "UserEmail": "madelineorr@geoforma.com",
-      "Firstname": "Nunez",
-      "Lastname": "Small",
-      "WorkedHours": 0,
-      "WastedHours": 0
+    "Schedules": [
+      {
+        "WeekDayId": 5,
+        "TimeFrom": "13:05",
+        "TimeTo": "03:06"
+      }
+    ]
+  },
+  {
+    "UserEmail": "conleykent@kraggle.com",
+    "Firstname": "Fern",
+    "Lastname": "Mcintyre",
+    "WorkedHours": 0,
+    "WastedHours": 0,
+    "Department": {
+      "DepartmentName": "Android"
     },
-    {
-      "UserEmail": "nunezsmall@geoforma.com",
-      "Firstname": "Nettie",
-      "Lastname": "Clay",
-      "WorkedHours": 0,
-      "WastedHours": 0
-    }
-  ]
+    "Schedules": [
+      {
+        "WeekDayId": 2,
+        "TimeFrom": "05:02",
+        "TimeTo": "09:03"
+      }
+    ]
+  },
+  {
+    "UserEmail": "fernmcintyre@kraggle.com",
+    "Firstname": "Letha",
+    "Lastname": "Rocha",
+    "WorkedHours": 0,
+    "WastedHours": 0,
+    "Department": {
+      "DepartmentName": "Android"
+    },
+    "Schedules": [
+      {
+        "WeekDayId": 2,
+        "TimeFrom": "19:04",
+        "TimeTo": "23:02"
+      }
+    ]
+  }
+]

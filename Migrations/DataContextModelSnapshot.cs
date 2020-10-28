@@ -62,11 +62,11 @@ namespace Revisory_Control.API.Migrations
                     b.Property<int>("WeekDayId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("TimeFrom")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("TimeFrom")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("TimeTo")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("TimeTo")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("UserId", "WeekDayId");
 

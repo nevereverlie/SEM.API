@@ -10,8 +10,8 @@ using RevisoryControl.API.Data;
 namespace Revisory_Control.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20201028184702_i")]
-    partial class i
+    [Migration("20201028231337_initialcreate")]
+    partial class initialcreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -64,11 +64,11 @@ namespace Revisory_Control.API.Migrations
                     b.Property<int>("WeekDayId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("TimeFrom")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("TimeFrom")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("TimeTo")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("TimeTo")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("UserId", "WeekDayId");
 

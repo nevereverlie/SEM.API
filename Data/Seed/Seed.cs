@@ -60,5 +60,20 @@ namespace Revisory_Control.API.Data.Seed
 
             await context.SaveChangesAsync();
         }
+        
+        public static async Task SeedWeekDays(DataContext context)
+        {
+            if (await context.WeekDays.AnyAsync()) return;
+
+            var dayData = await System.IO.File.ReadAllTextAsync("Data/Seed/WeekDaySeedData.json");
+            var days = JsonSerializer.Deserialize<List<WeekDay>>(dayData);
+
+            foreach (var day in days)
+            {
+                context.WeekDays.Add(day);
+            }
+
+            await context.SaveChangesAsync();
+        }
     }
 }

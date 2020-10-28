@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Revisory_Control.API.Migrations
 {
-    public partial class i : Migration
+    public partial class initialcreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -85,8 +85,8 @@ namespace Revisory_Control.API.Migrations
                 {
                     UserId = table.Column<int>(nullable: false),
                     WeekDayId = table.Column<int>(nullable: false),
-                    TimeFrom = table.Column<DateTime>(nullable: false),
-                    TimeTo = table.Column<DateTime>(nullable: false)
+                    TimeFrom = table.Column<string>(nullable: true),
+                    TimeTo = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

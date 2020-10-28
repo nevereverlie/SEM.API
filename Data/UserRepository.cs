@@ -29,7 +29,7 @@ namespace Revisory_Control.API.Data
 
         public async Task<IEnumerable<User>> GetUsers()
         {
-            return await _context.Users.ToListAsync();
+            return await _context.Users.Include(u => u.Department).Include(u => u.Schedules).ToListAsync();
         }
 
         public async Task<bool> SaveAllAsync()

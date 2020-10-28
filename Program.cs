@@ -24,6 +24,7 @@ namespace RevisoryControl.API
             {
                 var context = services.GetRequiredService<DataContext>();
                 await context.Database.MigrateAsync();
+                await Seed.SeedWeekDays(context);
                 await Seed.SeedCompanies(context);
                 await Seed.SeedUsers(context);
                 await Seed.SeedDepartments(context);
