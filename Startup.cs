@@ -17,6 +17,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Revisory_Control.API.Extensions;
 using Revisory_Control.API.Interfaces;
 using Revisory_Control.API.Services;
 using RevisoryControl.API.Data;
@@ -36,27 +37,13 @@ namespace RevisoryControl.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped<ITokenService, TokenService>();
-            
-            services.AddControllers();
+            services.AddApplicationServices(_config);
 
-            services.AddDbContext<DataContext>(options => {
-                options.UseSqlServer(_config.GetConnectionString("DefaultConnection"));
-            });
+            services.AddControllers();
 
             services.AddCors();
 
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-                    .AddJwtBearer(options =>
-                    {
-                        options.TokenValidationParameters = new TokenValidationParameters
-                        {
-                            ValidateIssuerSigningKey = true,
-                            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["TokenKey"])),
-                            ValidateIssuer = false,
-                            ValidateAudience = false
-                        };
-                    });
+            services.AddIdentityServices(_config);
 
             services.AddSwaggerGen(c =>
             {
