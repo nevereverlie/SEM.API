@@ -20,13 +20,16 @@ namespace Revisory_Control.API.Controllers
         private readonly IUserRepository _userRepository;
         private readonly IMapper _mapper;
         private readonly IFaceDetectionService _faceDetection;
+        private readonly IAppRepository _appRepository;
 
         public UsersController(IUserRepository userRepository,
                                IMapper mapper,
-                               IFaceDetectionService faceDetection)
+                               IFaceDetectionService faceDetection,
+                               IAppRepository appRepository)
         {
             _mapper = mapper;
             _faceDetection = faceDetection;
+            _appRepository = appRepository;
             _userRepository = userRepository;
         }
 
@@ -63,5 +66,14 @@ namespace Revisory_Control.API.Controllers
 
             return _faceDetection.IsFaceDetected(face, id);
         }
+
+        // [HttpPut("update")]
+        // public async Task<IActionResult> UpdateUser(User user)
+        // {
+        //     var userToUpdate = new User
+        //     {
+
+        //     }
+        // }
     }
 }
