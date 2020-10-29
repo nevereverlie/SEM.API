@@ -55,6 +55,8 @@ namespace Revisory_Control.API.Controllers
         {
             var depToUpdate = await _departmentRepo.GetDepartmentById(department.DepartmentId);
 
+            if (depToUpdate == null) return BadRequest("No such department in the database");
+
             depToUpdate.DepartmentName = department.DepartmentName;
 
             _appRepository.Update(depToUpdate);
@@ -67,6 +69,8 @@ namespace Revisory_Control.API.Controllers
         public async Task<IActionResult> DeleteDepartment(int id)
         {
             var depToDelete = await _departmentRepo.GetDepartmentById(id);
+                        
+            if (depToDelete == null) return BadRequest("No such department in the database");
 
             _appRepository.Delete(depToDelete);
 

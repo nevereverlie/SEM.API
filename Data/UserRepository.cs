@@ -19,17 +19,23 @@ namespace Revisory_Control.API.Data
 
         public async Task<User> GetUserByEmail(string email)
         {
-            return await _context.Users.Include(u => u.Department).Include(u => u.Schedules).SingleOrDefaultAsync(u => u.UserEmail == email);
+            return await _context.Users.Include(u => u.Department)
+                                       .Include(u => u.Schedules)
+                                       .SingleOrDefaultAsync(u => u.UserEmail == email);
         }
 
         public async Task<User> GetUserById(int id)
         {
-            return await _context.Users.Include(u => u.Department).Include(u => u.Schedules).SingleOrDefaultAsync(u => u.UserId == id);
+            return await _context.Users.Include(u => u.Department)
+                                       .Include(u => u.Schedules)
+                                       .SingleOrDefaultAsync(u => u.UserId == id);
         }
 
         public async Task<IEnumerable<User>> GetUsers()
         {
-            return await _context.Users.Include(u => u.Department).Include(u => u.Schedules).ToListAsync();
+            return await _context.Users.Include(u => u.Department)
+                                       .Include(u => u.Schedules)
+                                       .ToListAsync();
         }
 
         public async Task<bool> SaveAllAsync()

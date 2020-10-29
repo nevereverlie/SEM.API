@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Security.Cryptography;
+using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
@@ -67,13 +69,39 @@ namespace Revisory_Control.API.Controllers
             return _faceDetection.IsFaceDetected(face, id);
         }
 
-        // [HttpPut("update")]
-        // public async Task<IActionResult> UpdateUser(User user)
-        // {
-        //     var userToUpdate = new User
-        //     {
+        [HttpPut("update")]
+        public async Task<IActionResult> UpdateUser(UserForUpdateDto user)
+        {
+            var userToUpdate = await _userRepository.GetUserById(user.UserId);
 
-        //     }
-        // }
+            if (userToUpdate == null) return BadRequest("No such user in database");
+
+            using var hmac = new HMACSHA512();
+
+            userToUpdate.Lastname = user.Lastname;
+            userToUpdate.Firstname = user.Firstname;
+            userToUpdate.UserEmail = user.UserEmail;
+            userToUpdate.PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(user.UserPassword));
+            userToUpdate.PasswordSalt = hmac.Key;
+
+            _appRepository.Update(userToUpdate);
+
+            if (await _appRepository.SaveAll()) return Ok(userToUpdate);
+
+            return BadRequest("Problem updating this user");
+        }
+        [HttpDelete("delete/{id:int}")]
+        public async Task<IActionResult> DeleteUser(int id)
+        {
+            var userToDelete = await _userRepository.GetUserById(id);
+
+            if (userToDelete == null) return BadRequest("No such user in database");
+
+            _appRepository.Delete(userToDelete);
+
+            if (await _appRepository.SaveAll()) return Ok("User №" + id + " successfully deleted");
+
+            return BadRequest("Problem deleting this user");
+        }
     }
 }
