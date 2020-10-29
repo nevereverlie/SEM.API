@@ -16,6 +16,7 @@ namespace Revisory_Control.API.Extensions
         {
             services.AddScoped<ITokenService, TokenService>();
             services.AddScoped<IFaceDetectionService, FaceDetectionService>();
+            services.AddScoped<IAuthService, AuthService>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IAppRepository, AppRepository>();
             services.AddScoped<IDepartmentRepository, DepartmentRepository>();
