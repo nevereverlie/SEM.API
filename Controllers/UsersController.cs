@@ -1,7 +1,10 @@
 using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Revisory_Control.API.DTOs;
@@ -11,15 +14,19 @@ using RevisoryControl.API.Data;
 
 namespace Revisory_Control.API.Controllers
 {
-    [Authorize]
+    
     public class UsersController : BaseApiController
     {
         private readonly IUserRepository _userRepository;
         private readonly IMapper _mapper;
+        private readonly IFaceDetectionService _faceDetection;
 
-        public UsersController(IUserRepository userRepository, IMapper mapper)
+        public UsersController(IUserRepository userRepository,
+                               IMapper mapper,
+                               IFaceDetectionService faceDetection)
         {
             _mapper = mapper;
+            _faceDetection = faceDetection;
             _userRepository = userRepository;
         }
 
@@ -47,6 +54,14 @@ namespace Revisory_Control.API.Controllers
             var user = await _userRepository.GetUserByEmail(email);
 
             return _mapper.Map<EmployeeDto>(user);
+        }
+
+        [HttpPost("{id}/face")]
+        public bool IsUserFaceDetected(IFormFile faceImage, int id)
+        {
+            Image face = Image.FromStream(faceImage.OpenReadStream(), true, true);
+
+            return _faceDetection.IsFaceDetected(face, id);
         }
     }
 }
