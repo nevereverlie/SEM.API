@@ -4,7 +4,7 @@
     "Firstname": "Danylo",
     "Lastname": "Hladkov",
     "WorkedHours": 12,
-    "WastedHours": 4,
+    "WastedHours": 1,
     "Department": {
       "DepartmentName": ".NET"
     },
@@ -20,16 +20,16 @@
     "UserEmail": "raymondsullivan@kraggle.com",
     "Firstname": "Mabel",
     "Lastname": "Howe",
-    "WorkedHours": 0,
-    "WastedHours": 0,
+    "WorkedHours": 4,
+    "WastedHours": 2,
     "Department": {
       "DepartmentName": "Java"
     },
     "Schedules": [
       {
         "WeekDayId": 7,
-        "TimeFrom": "13:02",
-        "TimeTo": "14:04"
+        "TimeFrom": "08:00",
+        "TimeTo": "16:00"
       }
     ]
   },
@@ -37,7 +37,7 @@
     "UserEmail": "mabelhowe@kraggle.com",
     "Firstname": "Daisy",
     "Lastname": "Cooper",
-    "WorkedHours": 0,
+    "WorkedHours": 8,
     "WastedHours": 0,
     "Department": {
       "DepartmentName": "IOS"
@@ -45,8 +45,8 @@
     "Schedules": [
       {
         "WeekDayId": 4,
-        "TimeFrom": "07:11",
-        "TimeTo": "05:12"
+        "TimeFrom": "08:00",
+        "TimeTo": "16:00"
       }
     ]
   },
@@ -54,16 +54,16 @@
     "UserEmail": "daisycooper@kraggle.com",
     "Firstname": "Amie",
     "Lastname": "William",
-    "WorkedHours": 0,
-    "WastedHours": 0,
+    "WorkedHours": 4,
+    "WastedHours": 2,
     "Department": {
       "DepartmentName": "Embedded Systems"
     },
     "Schedules": [
       {
         "WeekDayId": 6,
-        "TimeFrom": "19:01",
-        "TimeTo": "14:10"
+        "TimeFrom": "08:00",
+        "TimeTo": "16:00"
       }
     ]
   },
@@ -71,16 +71,16 @@
     "UserEmail": "amiewilliam@kraggle.com",
     "Firstname": "Trina",
     "Lastname": "Cervantes",
-    "WorkedHours": 0,
-    "WastedHours": 0,
+    "WorkedHours": 8,
+    "WastedHours": 2,
     "Department": {
       "DepartmentName": ".NET"
     },
     "Schedules": [
       {
         "WeekDayId": 7,
-        "TimeFrom": "20:02",
-        "TimeTo": "14:12"
+        "TimeFrom": "08:00",
+        "TimeTo": "20:00"
       }
     ]
   }
