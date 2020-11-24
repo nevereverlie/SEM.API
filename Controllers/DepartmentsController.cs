@@ -50,6 +50,20 @@ namespace Revisory_Control.API.Controllers
 
             return depToReturn;
         }
+        [HttpPost("create")]
+        public async Task<IActionResult> CreateDepartment(Department department)
+        {
+            if (await _departmentRepo.GetDepartmentByName(department.DepartmentName) != null)
+                return BadRequest("Department with this name already exists");
+
+            _appRepository.Update(department);
+
+            if (await _appRepository.SaveAll()) return Ok(department);
+
+            return BadRequest("Problem updating this department");
+
+        }
+
         [HttpPut("update")]
         public async Task<IActionResult> UpdateDepartment(DepartmentDto department)
         {
@@ -74,7 +88,7 @@ namespace Revisory_Control.API.Controllers
 
             _appRepository.Delete(depToDelete);
 
-            if (await _appRepository.SaveAll()) return Ok("Successfully deleted department №" + id);
+            if (await _appRepository.SaveAll()) return Ok(200);
 
             return BadRequest("Problem deleting this department");
         }
