@@ -23,15 +23,18 @@ namespace Revisory_Control.API.Controllers
         private readonly IMapper _mapper;
         private readonly IFaceDetectionService _faceDetection;
         private readonly IAppRepository _appRepository;
+        private readonly IDepartmentRepository _departmentRepository;
 
         public UsersController(IUserRepository userRepository,
                                IMapper mapper,
                                IFaceDetectionService faceDetection,
-                               IAppRepository appRepository)
+                               IAppRepository appRepository,
+                               IDepartmentRepository departmentRepository)
         {
             _mapper = mapper;
             _faceDetection = faceDetection;
             _appRepository = appRepository;
+            _departmentRepository = departmentRepository;
             _userRepository = userRepository;
         }
 
@@ -81,8 +84,12 @@ namespace Revisory_Control.API.Controllers
             userToUpdate.Lastname = user.Lastname;
             userToUpdate.Firstname = user.Firstname;
             userToUpdate.UserEmail = user.UserEmail;
-            userToUpdate.PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(user.UserPassword));
-            userToUpdate.PasswordSalt = hmac.Key;
+            //userToUpdate.PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(user.UserPassword));
+            //userToUpdate.PasswordSalt = hmac.Key;
+
+            Department depForUpdate = await _departmentRepository.GetDepartmentByName(user.Department);
+            if (depForUpdate != null)
+                userToUpdate.Department = depForUpdate;
 
             _appRepository.Update(userToUpdate);
 

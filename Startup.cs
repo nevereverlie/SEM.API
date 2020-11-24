@@ -48,32 +48,32 @@ namespace RevisoryControl.API
 
             services.AddIdentityServices(_config);
 
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo
-                {
-                    Version = "v1",
-                    Title = "Revisory Control API",
-                    Description = "Документація API для програмної системи Revisory Control",
-                    TermsOfService = new Uri("https://example.com/terms"),
-                    Contact = new OpenApiContact
-                    {
-                        Name = "Shayne Boyer",
-                        Email = string.Empty,
-                        Url = new Uri("https://twitter.com/spboyer"),
-                    },
-                    License = new OpenApiLicense
-                    {
-                        Name = "Use under LICX",
-                        Url = new Uri("https://example.com/license"),
-                    }
-                });
+            // services.AddSwaggerGen(c =>
+            // {
+            //     c.SwaggerDoc("v1", new OpenApiInfo
+            //     {
+            //         Version = "v1",
+            //         Title = "Revisory Control API",
+            //         Description = "Документація API для програмної системи Revisory Control",
+            //         TermsOfService = new Uri("https://example.com/terms"),
+            //         Contact = new OpenApiContact
+            //         {
+            //             Name = "Shayne Boyer",
+            //             Email = string.Empty,
+            //             Url = new Uri("https://twitter.com/spboyer"),
+            //         },
+            //         License = new OpenApiLicense
+            //         {
+            //             Name = "Use under LICX",
+            //             Url = new Uri("https://example.com/license"),
+            //         }
+            //     });
 
-                // Set the comments path for the Swagger JSON and UI.
-                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-                c.IncludeXmlComments(xmlPath);
-            });
+            //     // Set the comments path for the Swagger JSON and UI.
+            //     var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+            //     var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+            //     c.IncludeXmlComments(xmlPath);
+            // });
 
         }
 
@@ -84,28 +84,37 @@ namespace RevisoryControl.API
             {
                 app.UseDeveloperExceptionPage();
             }
+            else
+            {
+                app.UseHsts();
+            }
 
             app.UseHttpsRedirection();
-
+            app.UseDeveloperExceptionPage();
+            
             app.UseRouting();
 
             app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
-            app.UseSwagger();
+            // app.UseSwagger();
 
-            app.UseSwaggerUI(c =>
-            {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
-                c.RoutePrefix = string.Empty;
-            });
+            // app.UseSwaggerUI(c =>
+            // {
+            //     c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            //     c.RoutePrefix = string.Empty;
+            // });
 
             app.UseAuthentication();
 
             app.UseAuthorization();
 
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapFallbackToController("Index", "Fallback");
             });
         }
     }

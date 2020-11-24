@@ -22,6 +22,7 @@ namespace Revisory_Control.API.Services
         {
             var claims = new List<Claim>
             {
+                new Claim(JwtRegisteredClaimNames.NameId, user.UserId.ToString()),
                 new Claim(JwtRegisteredClaimNames.Email, user.UserEmail)
             };
 

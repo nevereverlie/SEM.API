@@ -64,6 +64,7 @@ namespace Revisory_Control.API.Services
 
             return new UserDto
             {
+                UserId = user.UserId,
                 Email = user.UserEmail,
                 Token = _tokenService.CreateToken(user)
             };
