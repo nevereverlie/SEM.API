@@ -15,6 +15,31 @@ namespace Revisory_Control.API.Models
         public int WorkedHours { get; set; }
         public int WastedHours { get; set; }
         public ICollection<Schedule> Schedules { get; set; }
+        public int WorkedMinutes { get; set; }
+        public int WastedMinutes { get; set; }
 
+
+        public void MinutesToHours(bool isWorked)
+        {
+            switch (isWorked)
+            {
+                case false:
+                    WastedMinutes++;
+                    if (WastedMinutes >= 60)
+                    {
+                        WastedMinutes = 0;
+                        WastedHours++;
+                    }
+                    break;
+                case true:
+                    WorkedMinutes++;
+                    if (WorkedMinutes >= 60)
+                    {
+                        WorkedMinutes = 0;
+                        WorkedHours++;
+                    }
+                    break;
+            }
+        }
     }
 }

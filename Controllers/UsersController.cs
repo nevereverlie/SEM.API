@@ -106,9 +106,24 @@ namespace Revisory_Control.API.Controllers
 
             _appRepository.Delete(userToDelete);
 
-            if (await _appRepository.SaveAll()) return Ok("User №" + id + " successfully deleted");
+            if (await _appRepository.SaveAll()) return Ok(200);
 
             return BadRequest("Problem deleting this user");
+        }
+        [HttpPut("{userId:int}/working/{isWorking:bool}")]
+        public async Task<IActionResult> WorkingMinutes(int userId, bool isWorking)
+        {
+            var user = await _userRepository.GetUserById(userId);
+
+            if (user == null) return BadRequest("User not found.......");
+
+            user.MinutesToHours(isWorking);
+
+            _appRepository.Update(user);
+
+            if (await _appRepository.SaveAll()) return Ok(200);
+                        
+            return BadRequest("Problem adding working minutes...");
         }
     }
 }

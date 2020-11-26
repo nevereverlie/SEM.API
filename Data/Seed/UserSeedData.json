@@ -14,7 +14,9 @@
         "TimeFrom": "06:00",
         "TimeTo": "20:00"
       }
-    ]
+    ],
+    "WastedMinutes": 59,
+    "WorkedMinutes": 59
   },
   {
     "UserEmail": "raymondsullivan@kraggle.com",
@@ -31,7 +33,9 @@
         "TimeFrom": "08:00",
         "TimeTo": "16:00"
       }
-    ]
+    ],
+    "WastedMinutes": 0,
+    "WorkedMinutes": 0
   },
   {
     "UserEmail": "mabelhowe@kraggle.com",
@@ -48,7 +52,9 @@
         "TimeFrom": "08:00",
         "TimeTo": "16:00"
       }
-    ]
+    ],
+    "WastedMinutes": 0,
+    "WorkedMinutes": 0
   },
   {
     "UserEmail": "daisycooper@kraggle.com",
@@ -65,7 +71,9 @@
         "TimeFrom": "08:00",
         "TimeTo": "16:00"
       }
-    ]
+    ],
+    "WastedMinutes": 0,
+    "WorkedMinutes": 0
   },
   {
     "UserEmail": "amiewilliam@kraggle.com",
@@ -82,6 +90,8 @@
         "TimeFrom": "08:00",
         "TimeTo": "20:00"
       }
-    ]
+    ],
+    "WastedMinutes": 0,
+    "WorkedMinutes": 0
   }
 ]
