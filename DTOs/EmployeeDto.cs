@@ -12,6 +12,8 @@ namespace Revisory_Control.API.DTOs
         public DepartmentDto Department { get; set; }
         public int WorkedHours { get; set; }
         public int WastedHours { get; set; }
+        public int WorkedMinutes { get; set; }
+        public int WastedMinutes { get; set; }
         public ICollection<ScheduleDto> Schedules { get; set; }
     
     }

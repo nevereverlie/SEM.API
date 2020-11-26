@@ -11,16 +11,19 @@ namespace Revisory_Control.API.Services
     public class AuthService : IAuthService
     {
         private readonly IUserRepository _userRepository;
+        private readonly IDepartmentRepository _depRepo;
         private readonly IAppRepository _appRepository;
         private readonly ITokenService _tokenService;
 
         public AuthService(IUserRepository userRepository,
                            IAppRepository appRepository,
-                           ITokenService tokenService)
+                           ITokenService tokenService,
+                           IDepartmentRepository depRepo)
         {
             _userRepository = userRepository;
             _appRepository = appRepository;
             _tokenService = tokenService;
+            _depRepo = depRepo;
         }
         public async Task<UserDto> Login(LoginDto loginDto)
         {
@@ -55,6 +58,7 @@ namespace Revisory_Control.API.Services
                 Lastname = registerDto.Lastname.ToLower(),
                 Firstname = registerDto.Firstname.ToLower(),
                 UserEmail = registerDto.Email,
+                Department = await _depRepo.GetDepartmentById(1),
                 PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDto.Password)),
                 PasswordSalt = hmac.Key
             };

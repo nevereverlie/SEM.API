@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
@@ -72,24 +73,49 @@ namespace Revisory_Control.API.Controllers
             return _faceDetection.IsFaceDetected(face, id);
         }
 
-        [HttpPut("update")]
-        public async Task<IActionResult> UpdateUser(UserForUpdateDto user)
+        [HttpPut("updateProfile")]
+        public async Task<IActionResult> UpdateProfile([FromBody]UserForUpdateDto user)
         {
             var userToUpdate = await _userRepository.GetUserById(user.UserId);
 
             if (userToUpdate == null) return BadRequest("No such user in database");
 
-            using var hmac = new HMACSHA512();
+            userToUpdate.Lastname = user.Lastname;
+            userToUpdate.Firstname = user.Firstname;
+            userToUpdate.UserEmail = user.UserEmail;   
+
+            Department depForUpdate = await _departmentRepository.GetDepartmentByName(user.Department);
+            if (depForUpdate != null)
+                 userToUpdate.Department = depForUpdate;
+
+            _appRepository.Update(userToUpdate);
+
+            if (await _appRepository.SaveAll()) return Ok(userToUpdate);
+
+            return BadRequest("Problem updating this user");        
+        }
+
+        [HttpPut("update")]
+        public async Task<IActionResult> UpdateUser([FromForm]UserForUpdateDto user)
+        {
+            var userToUpdate = await _userRepository.GetUserById(user.UserId);
+
+            if (userToUpdate == null) return BadRequest("No such user in database");
 
             userToUpdate.Lastname = user.Lastname;
             userToUpdate.Firstname = user.Firstname;
             userToUpdate.UserEmail = user.UserEmail;
+            userToUpdate.WorkedHours = Convert.ToInt32(user.WorkedHours);
+            userToUpdate.WastedHours = Convert.ToInt32(user.WastedHours);
+            userToUpdate.WorkedMinutes = Convert.ToInt32(user.WorkedMinutes);
+            userToUpdate.WastedMinutes = Convert.ToInt32(user.WastedMinutes);
+
             //userToUpdate.PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(user.UserPassword));
             //userToUpdate.PasswordSalt = hmac.Key;
 
-            Department depForUpdate = await _departmentRepository.GetDepartmentByName(user.Department);
-            if (depForUpdate != null)
-                userToUpdate.Department = depForUpdate;
+             Department depForUpdate = await _departmentRepository.GetDepartmentByName(user.Department);
+             if (depForUpdate != null)
+                 userToUpdate.Department = depForUpdate;
 
             _appRepository.Update(userToUpdate);
 
