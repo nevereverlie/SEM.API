@@ -6,10 +6,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using Revisory_Control.API.Data.Seed;
-using RevisoryControl.API.Data;
+using SEM.API.Data.Seed;
+using SEM.API.Data;
 
-namespace RevisoryControl.API
+namespace SEM.API
 {
     public class Program
     {

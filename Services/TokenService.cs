@@ -5,10 +5,10 @@ using System.Security.Claims;
 using System.Text;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
-using Revisory_Control.API.Interfaces;
-using Revisory_Control.API.Models;
+using SEM.API.Interfaces;
+using SEM.API.Models;
 
-namespace Revisory_Control.API.Services
+namespace SEM.API.Services
 {
     public class TokenService : ITokenService
     {

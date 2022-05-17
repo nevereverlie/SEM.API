@@ -1,10 +1,9 @@
-using System.Threading.Tasks;
 using Emgu.CV;
-using Revisory_Control.API.Interfaces;
+using SEM.API.Interfaces;
 using System.Drawing;
 using Emgu.CV.Structure;
 
-namespace Revisory_Control.API.Services
+namespace SEM.API.Services
 {
     public class FaceDetectionService : IFaceDetectionService
     {

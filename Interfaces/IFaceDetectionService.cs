@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
 using System.Drawing;
 
-namespace Revisory_Control.API.Interfaces
+namespace SEM.API.Interfaces
 {
     public interface IFaceDetectionService
     {

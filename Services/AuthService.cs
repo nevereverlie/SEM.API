@@ -2,11 +2,11 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Revisory_Control.API.DTOs;
-using Revisory_Control.API.Interfaces;
-using Revisory_Control.API.Models;
+using SEM.API.DTOs;
+using SEM.API.Interfaces;
+using SEM.API.Models;
 
-namespace Revisory_Control.API.Services
+namespace SEM.API.Services
 {
     public class AuthService : IAuthService
     {

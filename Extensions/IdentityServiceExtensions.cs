@@ -4,7 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 
-namespace Revisory_Control.API.Extensions
+namespace SEM.API.Extensions
 {
     public static class IdentityServiceExtensions
     {

@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace Revisory_Control.API.Controllers
+namespace SEM.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

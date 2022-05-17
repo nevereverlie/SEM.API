@@ -1,0 +1,50 @@
+[
+    {
+        "appId": 1,
+        "appName": "Visual Studio Code"
+    },
+    {
+        "appId": 2,
+        "appName": "Visual Studio 2019"
+    },
+    {
+        "appId": 3,
+        "appName": "Visual Studio 2022"
+    },
+    {
+        "appId": 4,
+        "appName": "Skype"
+    },
+    {
+        "appId": 5,
+        "appName": "Microsoft SQL Management Studio"
+    },
+    {
+        "appId": 6,
+        "appName": "Slack"
+    },
+    {
+        "appId": 7,
+        "appName": "PyCharm"
+    },
+    {
+        "appId": 8,
+        "appName": "IntelliJ IDEA"
+    },
+    {
+        "appId": 9,
+        "appName": "WebStorm"
+    },
+    {
+        "appId": 10,
+        "appName": "Notepad++"
+    },
+    {
+        "appId": 11,
+        "appName": "cmd"
+    },
+    {
+        "appId": 12,
+        "appName": "MINGW64"
+    }
+]

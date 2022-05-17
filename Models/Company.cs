@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Revisory_Control.API.Models
+namespace SEM.API.Models
 {
     public class Company
     {

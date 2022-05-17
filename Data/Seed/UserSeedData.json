@@ -93,5 +93,18 @@
     ],
     "WastedMinutes": 0,
     "WorkedMinutes": 0
+  },
+  {
+    "UserEmail": "Admin",
+    "Firstname": "admin",
+    "Lastname": "admin",
+    "WorkedHours": 0,
+    "WastedHours": 0,
+    "Department": {
+      "DepartmentName": ".NET"
+    },
+    "Schedules": [],
+    "WastedMinutes": 0,
+    "WorkedMinutes": 0
   }
 ]

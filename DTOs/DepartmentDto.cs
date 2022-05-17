@@ -1,4 +1,4 @@
-namespace Revisory_Control.API.DTOs
+namespace SEM.API.DTOs
 {
     public class DepartmentDto
     {

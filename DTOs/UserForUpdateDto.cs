@@ -1,4 +1,4 @@
-namespace Revisory_Control.API.DTOs
+namespace SEM.API.DTOs
 {
     public class UserForUpdateDto
     {
@@ -11,5 +11,6 @@ namespace Revisory_Control.API.DTOs
         public int WastedHours { get; set; }
         public int WorkedMinutes { get; set; }
         public int WastedMinutes { get; set; }
+        public string AllowedApps { get; set; } //JSON string
     }
 }

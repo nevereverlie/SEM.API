@@ -1,6 +1,6 @@
-using Revisory_Control.API.Models;
+using SEM.API.Models;
 
-namespace Revisory_Control.API.Interfaces
+namespace SEM.API.Interfaces
 {
     public interface ITokenService
     {

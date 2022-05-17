@@ -1,7 +1,7 @@
 using System.IO;
 using Microsoft.AspNetCore.Mvc;
 
-namespace SWMedia.API.Controllers
+namespace SEM.API.Controllers
 {
     public class Fallback : Controller
     {

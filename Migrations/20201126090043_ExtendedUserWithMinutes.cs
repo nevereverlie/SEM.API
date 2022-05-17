@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Revisory_Control.API.Migrations
+namespace SEM.API.Migrations
 {
     public partial class ExtendedUserWithMinutes : Migration
     {

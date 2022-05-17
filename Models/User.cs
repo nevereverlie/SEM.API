@@ -1,7 +1,6 @@
 using System.Collections.Generic;
-using Microsoft.AspNetCore.Identity;
 
-namespace Revisory_Control.API.Models
+namespace SEM.API.Models
 {
     public class User
     {
@@ -17,7 +16,7 @@ namespace Revisory_Control.API.Models
         public ICollection<Schedule> Schedules { get; set; }
         public int WorkedMinutes { get; set; }
         public int WastedMinutes { get; set; }
-
+        public string[] AllowedApps { get; set; }
 
         public void MinutesToHours(bool isWorked)
         {

@@ -2,11 +2,11 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using Revisory_Control.API.DTOs;
-using Revisory_Control.API.Interfaces;
-using Revisory_Control.API.Models;
+using SEM.API.DTOs;
+using SEM.API.Interfaces;
+using SEM.API.Models;
 
-namespace Revisory_Control.API.Controllers
+namespace SEM.API.Controllers
 {
     public class DepartmentsController : BaseApiController
     {

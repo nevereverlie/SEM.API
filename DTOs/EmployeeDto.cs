@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using Revisory_Control.API.Models;
+using SEM.API.Models;
 
-namespace Revisory_Control.API.DTOs
+namespace SEM.API.DTOs
 {
     public class EmployeeDto
     {
@@ -15,6 +15,7 @@ namespace Revisory_Control.API.DTOs
         public int WorkedMinutes { get; set; }
         public int WastedMinutes { get; set; }
         public ICollection<ScheduleDto> Schedules { get; set; }
-    
+
+        public string[] AllowedApps { get; set; }
     }
 }

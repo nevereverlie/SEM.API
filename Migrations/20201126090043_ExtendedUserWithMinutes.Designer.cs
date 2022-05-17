@@ -5,9 +5,9 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using RevisoryControl.API.Data;
+using SEM.API.Data;
 
-namespace Revisory_Control.API.Migrations
+namespace SEM.API.Migrations
 {
     [DbContext(typeof(DataContext))]
     [Migration("20201126090043_ExtendedUserWithMinutes")]
@@ -21,7 +21,7 @@ namespace Revisory_Control.API.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Revisory_Control.API.Models.Company", b =>
+            modelBuilder.Entity("SEM.API.Models.Company", b =>
                 {
                     b.Property<int>("CompanyId")
                         .ValueGeneratedOnAdd()
@@ -36,7 +36,7 @@ namespace Revisory_Control.API.Migrations
                     b.ToTable("Companies");
                 });
 
-            modelBuilder.Entity("Revisory_Control.API.Models.Department", b =>
+            modelBuilder.Entity("SEM.API.Models.Department", b =>
                 {
                     b.Property<int>("DepartmentId")
                         .ValueGeneratedOnAdd()
@@ -56,7 +56,7 @@ namespace Revisory_Control.API.Migrations
                     b.ToTable("Departments");
                 });
 
-            modelBuilder.Entity("Revisory_Control.API.Models.Schedule", b =>
+            modelBuilder.Entity("SEM.API.Models.Schedule", b =>
                 {
                     b.Property<int>("UserId")
                         .HasColumnType("int");
@@ -77,7 +77,7 @@ namespace Revisory_Control.API.Migrations
                     b.ToTable("Schedules");
                 });
 
-            modelBuilder.Entity("Revisory_Control.API.Models.User", b =>
+            modelBuilder.Entity("SEM.API.Models.User", b =>
                 {
                     b.Property<int>("UserId")
                         .ValueGeneratedOnAdd()
@@ -121,7 +121,7 @@ namespace Revisory_Control.API.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("Revisory_Control.API.Models.WeekDay", b =>
+            modelBuilder.Entity("SEM.API.Models.WeekDay", b =>
                 {
                     b.Property<int>("WeekDayId")
                         .ValueGeneratedOnAdd()
@@ -136,32 +136,32 @@ namespace Revisory_Control.API.Migrations
                     b.ToTable("WeekDays");
                 });
 
-            modelBuilder.Entity("Revisory_Control.API.Models.Department", b =>
+            modelBuilder.Entity("SEM.API.Models.Department", b =>
                 {
-                    b.HasOne("Revisory_Control.API.Models.Company", "Company")
+                    b.HasOne("SEM.API.Models.Company", "Company")
                         .WithMany("Departments")
                         .HasForeignKey("CompanyId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("Revisory_Control.API.Models.Schedule", b =>
+            modelBuilder.Entity("SEM.API.Models.Schedule", b =>
                 {
-                    b.HasOne("Revisory_Control.API.Models.User", "User")
+                    b.HasOne("SEM.API.Models.User", "User")
                         .WithMany("Schedules")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Revisory_Control.API.Models.WeekDay", "WeekDay")
+                    b.HasOne("SEM.API.Models.WeekDay", "WeekDay")
                         .WithMany("Schedules")
                         .HasForeignKey("WeekDayId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Revisory_Control.API.Models.User", b =>
+            modelBuilder.Entity("SEM.API.Models.User", b =>
                 {
-                    b.HasOne("Revisory_Control.API.Models.Department", "Department")
+                    b.HasOne("SEM.API.Models.Department", "Department")
                         .WithMany("Users")
                         .HasForeignKey("DepartmentId")
                         .OnDelete(DeleteBehavior.Cascade);

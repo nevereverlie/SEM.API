@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
-using Revisory_Control.API.DTOs;
+using SEM.API.DTOs;
 
-namespace Revisory_Control.API.Interfaces
+namespace SEM.API.Interfaces
 {
     public interface IAuthService
     {

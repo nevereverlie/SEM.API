@@ -1,21 +1,17 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.IO;
-using System.Security.Cryptography;
-using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using AutoMapper;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Revisory_Control.API.DTOs;
-using Revisory_Control.API.Interfaces;
-using Revisory_Control.API.Models;
-using RevisoryControl.API.Data;
+using SEM.API.DTOs;
+using SEM.API.Interfaces;
+using SEM.API.Models;
+using Newtonsoft.Json;
 
-namespace Revisory_Control.API.Controllers
+namespace SEM.API.Controllers
 {
     
     public class UsersController : BaseApiController
@@ -109,6 +105,7 @@ namespace Revisory_Control.API.Controllers
             userToUpdate.WastedHours = Convert.ToInt32(user.WastedHours);
             userToUpdate.WorkedMinutes = Convert.ToInt32(user.WorkedMinutes);
             userToUpdate.WastedMinutes = Convert.ToInt32(user.WastedMinutes);
+            userToUpdate.AllowedApps = JsonConvert.DeserializeObject<string[]>(user.AllowedApps);
 
             //userToUpdate.PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(user.UserPassword));
             //userToUpdate.PasswordSalt = hmac.Key;
@@ -123,6 +120,7 @@ namespace Revisory_Control.API.Controllers
 
             return BadRequest("Problem updating this user");
         }
+        
         [HttpDelete("delete/{id:int}")]
         public async Task<IActionResult> DeleteUser(int id)
         {
@@ -136,6 +134,7 @@ namespace Revisory_Control.API.Controllers
 
             return BadRequest("Problem deleting this user");
         }
+
         [HttpPut("{userId:int}/working/{isWorking:bool}")]
         public async Task<IActionResult> WorkingMinutes(int userId, bool isWorking)
         {

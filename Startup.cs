@@ -17,12 +17,12 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using Revisory_Control.API.Extensions;
-using Revisory_Control.API.Interfaces;
-using Revisory_Control.API.Services;
-using RevisoryControl.API.Data;
+using SEM.API.Extensions;
+using SEM.API.Interfaces;
+using SEM.API.Services;
+using SEM.API.Data;
 
-namespace RevisoryControl.API
+namespace SEM.API
 {
     public class Startup
     {
@@ -53,8 +53,8 @@ namespace RevisoryControl.API
                 c.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Version = "v1",
-                    Title = "Revisory Control API",
-                    Description = "Документація API для програмної системи Revisory Control",
+                    Title = "SEM API",
+                    Description = "Документація API для програмної системи SEM",
                     TermsOfService = new Uri("https://example.com/terms"),
                     Contact = new OpenApiContact
                     {
@@ -74,7 +74,6 @@ namespace RevisoryControl.API
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 c.IncludeXmlComments(xmlPath);
             });
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -96,13 +95,13 @@ namespace RevisoryControl.API
 
             app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
-             app.UseSwagger();
+            app.UseSwagger();
 
-             app.UseSwaggerUI(c =>
-             {
-                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
-                 c.RoutePrefix = string.Empty;
-             });
+            // app.UseSwaggerUI(c =>
+            // {
+            //     c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            //     c.RoutePrefix = string.Empty;
+            // });
 
             app.UseAuthentication();
 

@@ -3,12 +3,12 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Revisory_Control.API.DTOs;
-using Revisory_Control.API.Interfaces;
-using Revisory_Control.API.Models;
-using RevisoryControl.API.Data;
+using SEM.API.DTOs;
+using SEM.API.Interfaces;
+using SEM.API.Models;
+using SEM.API.Data;
 
-namespace Revisory_Control.API.Controllers
+namespace SEM.API.Controllers
 {
     public class AccountController : BaseApiController
     {

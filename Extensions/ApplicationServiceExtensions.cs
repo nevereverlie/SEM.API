@@ -2,13 +2,12 @@ using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Revisory_Control.API.Data;
-using Revisory_Control.API.Helpers;
-using Revisory_Control.API.Interfaces;
-using Revisory_Control.API.Services;
-using RevisoryControl.API.Data;
+using SEM.API.Data;
+using SEM.API.Helpers;
+using SEM.API.Interfaces;
+using SEM.API.Services;
 
-namespace Revisory_Control.API.Extensions
+namespace SEM.API.Extensions
 {
     public static class ApplicationServiceExtensions
     {

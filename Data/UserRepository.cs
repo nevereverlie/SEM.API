@@ -2,11 +2,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using Revisory_Control.API.Interfaces;
-using Revisory_Control.API.Models;
-using RevisoryControl.API.Data;
+using SEM.API.Interfaces;
+using SEM.API.Models;
+using SEM.API.Data;
 
-namespace Revisory_Control.API.Data
+namespace SEM.API.Data
 {
     public class UserRepository : IUserRepository
     {

@@ -4,10 +4,10 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using Revisory_Control.API.Models;
-using RevisoryControl.API.Data;
+using SEM.API.Models;
+using SEM.API.Data;
 
-namespace Revisory_Control.API.Data.Seed
+namespace SEM.API.Data.Seed
 {
     public class Seed
     {

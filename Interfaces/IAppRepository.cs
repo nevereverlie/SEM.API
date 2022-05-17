@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 
-namespace Revisory_Control.API.Interfaces
+namespace SEM.API.Interfaces
 {
     public interface IAppRepository
     {

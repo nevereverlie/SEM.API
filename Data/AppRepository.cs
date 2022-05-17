@@ -1,8 +1,8 @@
 using System.Threading.Tasks;
-using Revisory_Control.API.Interfaces;
-using RevisoryControl.API.Data;
+using SEM.API.Interfaces;
+using SEM.API.Data;
 
-namespace Revisory_Control.API.Data
+namespace SEM.API.Data
 {
     public class AppRepository : IAppRepository
     {

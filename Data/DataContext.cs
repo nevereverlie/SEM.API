@@ -1,7 +1,8 @@
+using System;
 using Microsoft.EntityFrameworkCore;
-using Revisory_Control.API.Models;
+using SEM.API.Models;
 
-namespace RevisoryControl.API.Data
+namespace SEM.API.Data
 {
     public class DataContext : DbContext
     {
@@ -37,6 +38,11 @@ namespace RevisoryControl.API.Data
                 .WithOne(e => e.User)
                 .OnDelete(DeleteBehavior.Cascade)
                 .IsRequired();
+            modelBuilder.Entity<User>()
+                .Property(u => u.AllowedApps)
+                .HasConversion(
+                    v => string.Join(',', v),
+                    v => v.Split(',', StringSplitOptions.RemoveEmptyEntries));
 
             modelBuilder.Entity<WeekDay>()
                 .HasMany(w => w.Schedules)

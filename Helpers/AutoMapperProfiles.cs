@@ -1,8 +1,8 @@
 using AutoMapper;
-using Revisory_Control.API.DTOs;
-using Revisory_Control.API.Models;
+using SEM.API.DTOs;
+using SEM.API.Models;
 
-namespace Revisory_Control.API.Helpers
+namespace SEM.API.Helpers
 {
     public class AutoMapperProfiles : Profile
     {
