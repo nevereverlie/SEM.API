@@ -10,6 +10,8 @@ using SEM.API.DTOs;
 using SEM.API.Interfaces;
 using SEM.API.Models;
 using Newtonsoft.Json;
+using System.IO;
+using System.Net.Http;
 
 namespace SEM.API.Controllers
 {
@@ -62,7 +64,7 @@ namespace SEM.API.Controllers
         }
 
         [HttpPost("{id}/face")]
-        public bool IsUserFaceDetected(IFormFile faceImage, int id)
+        public bool IsUserFaceDetected([FromForm(Name ="file")]IFormFile faceImage, int id)
         {
             Image face = Image.FromStream(faceImage.OpenReadStream(), true, true);
 
