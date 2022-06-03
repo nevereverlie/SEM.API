@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
@@ -10,8 +9,6 @@ using SEM.API.DTOs;
 using SEM.API.Interfaces;
 using SEM.API.Models;
 using Newtonsoft.Json;
-using System.IO;
-using System.Net.Http;
 
 namespace SEM.API.Controllers
 {
@@ -109,10 +106,7 @@ namespace SEM.API.Controllers
             userToUpdate.WastedMinutes = Convert.ToInt32(user.WastedMinutes);
             userToUpdate.AllowedApps = JsonConvert.DeserializeObject<string[]>(user.AllowedApps);
 
-            //userToUpdate.PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(user.UserPassword));
-            //userToUpdate.PasswordSalt = hmac.Key;
-
-             Department depForUpdate = await _departmentRepository.GetDepartmentByName(user.Department);
+            Department depForUpdate = await _departmentRepository.GetDepartmentByName(user.Department);
              if (depForUpdate != null)
                  userToUpdate.Department = depForUpdate;
 

@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32505.173
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SEM.API", "SEM.API.csproj", "{D69AE81E-7161-4491-9725-461E5810D7C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEM.API.Test", "..\SEM.API.Test\SEM.API.Test.csproj", "{78A1EF57-B48C-42CA-A130-67CC9BC6906B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D69AE81E-7161-4491-9725-461E5810D7C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D69AE81E-7161-4491-9725-461E5810D7C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D69AE81E-7161-4491-9725-461E5810D7C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D69AE81E-7161-4491-9725-461E5810D7C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78A1EF57-B48C-42CA-A130-67CC9BC6906B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78A1EF57-B48C-42CA-A130-67CC9BC6906B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78A1EF57-B48C-42CA-A130-67CC9BC6906B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78A1EF57-B48C-42CA-A130-67CC9BC6906B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DF173CA0-0522-43FA-83BC-D6B797005C41}
+	EndGlobalSection
+EndGlobal
