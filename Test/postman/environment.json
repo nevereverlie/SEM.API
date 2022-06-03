@@ -1,0 +1,24 @@
+{
+	"id": "994c5fa7-9cb3-4301-9e85-0670ab773a64",
+	"name": "SEM.API",
+	"values": [
+		{
+			"key": "server",
+			"value": "https://localhost:5001/api",
+			"enabled": true
+		},
+		{
+			"key": "userToken",
+			"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI3IiwiZW1haWwiOiJzb21lLmVtYWlsLkBnbWFpbC5jb20iLCJuYmYiOjE2NTQyODQzNTAsImV4cCI6MTY1NDM3MDc1MCwiaWF0IjoxNjU0Mjg0MzUwfQ.CDhakTPz9am6LZwLI7u9rOM43MVpej-aUNHUHpgKp1DGpTWfZS3njdRcUKw5Xmwv6hEkx7whWTW7lprrjBpF2w",
+			"enabled": true
+		},
+		{
+			"key": "userId",
+			"value": "",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2022-06-03T20:21:42.470Z",
+	"_postman_exported_using": "Postman/9.20.3"
+}

@@ -9,10 +9,12 @@ using SEM.API.DTOs;
 using SEM.API.Interfaces;
 using SEM.API.Models;
 using Newtonsoft.Json;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace SEM.API.Controllers
 {
-    
+    [Authorize(AuthenticationSchemes=JwtBearerDefaults.AuthenticationScheme)]
     public class UsersController : BaseApiController
     {
         private readonly IUserRepository _userRepository;
@@ -77,7 +79,7 @@ namespace SEM.API.Controllers
 
             userToUpdate.Lastname = user.Lastname;
             userToUpdate.Firstname = user.Firstname;
-            userToUpdate.UserEmail = user.UserEmail;   
+            userToUpdate.UserEmail = user.UserEmail;
 
             Department depForUpdate = await _departmentRepository.GetDepartmentByName(user.Department);
             if (depForUpdate != null)
@@ -117,7 +119,7 @@ namespace SEM.API.Controllers
             return BadRequest("Problem updating this user");
         }
         
-        [HttpDelete("delete/{id:int}")]
+        [HttpDelete("delete/{id}")]
         public async Task<IActionResult> DeleteUser(int id)
         {
             var userToDelete = await _userRepository.GetUserById(id);
