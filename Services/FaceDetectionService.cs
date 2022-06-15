@@ -2,6 +2,8 @@ using Emgu.CV;
 using SEM.API.Interfaces;
 using System.Drawing;
 using Emgu.CV.Structure;
+using System.IO;
+using System;
 
 namespace SEM.API.Services
 {
