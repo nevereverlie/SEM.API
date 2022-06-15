@@ -7,7 +7,8 @@ namespace SEM.API.Services
 {
     public class FaceDetectionService : IFaceDetectionService
     {
-        static readonly CascadeClassifier classifier = new CascadeClassifier("Helpers/haarcascade_frontalface_alt_tree.xml");
+        static readonly CascadeClassifier classifier =
+            new CascadeClassifier("Helpers/haarcascade_frontalface_alt_tree.xml");
         public bool IsFaceDetected(Image image, int userId)
         {
             Rectangle[] rectangles = DetectFaces(image);

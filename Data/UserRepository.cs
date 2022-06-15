@@ -17,18 +17,18 @@ namespace SEM.API.Data
             _context = context;
         }
 
-        public async Task<User> GetUserByEmail(string email)
-        {
-            return await _context.Users.Include(u => u.Department)
-                                       .Include(u => u.Schedules)
-                                       .SingleOrDefaultAsync(u => u.UserEmail == email);
-        }
-
         public async Task<User> GetUserById(int id)
         {
             return await _context.Users.Include(u => u.Department)
                                        .Include(u => u.Schedules)
                                        .SingleOrDefaultAsync(u => u.UserId == id);
+        }
+
+        public async Task<User> GetUserByEmail(string email)
+        {
+            return await _context.Users.Include(u => u.Department)
+                                       .Include(u => u.Schedules)
+                                       .SingleOrDefaultAsync(u => u.UserEmail == email);
         }
 
         public async Task<IEnumerable<User>> GetUsers()

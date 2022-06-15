@@ -44,7 +44,6 @@ namespace SEM.API.Services
                 Email = user.UserEmail,
                 Token = _tokenService.CreateToken(user)
             };
-
         }
 
         public async Task<UserDto> Register(RegisterDto registerDto)
